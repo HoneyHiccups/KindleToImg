@@ -1,4 +1,4 @@
-
+class_name main
 extends Node
 @export var testfire:bool = true
 var testimg:Image = null
@@ -38,13 +38,19 @@ func warpclickLeft():
 
 
 func screenShot(side:int)->bool:
+	ready_toTurn = false;
 	if(side == -1):
 		#in this case we are running a test
 		pass
 	else:
 		screenshotNumber = screenshotNumber+1;
 	testfire = false;
-	testimg = DisplayServer.screen_get_image(DisplayServer.get_primary_screen())
+	if(side == 1):
+		testimg = DisplayServer.screen_get_image_rect(Rect2i(p1_rect.x,p1_rect.y,p1_rect.w,p1_rect.x));
+	if(side == 2):
+		testimg = DisplayServer.screen_get_image_rect(Rect2i(p2_rect.x,p2_rect.y,p2_rect.w,p2_rect.x));
+	if(side == -1):
+		testimg = DisplayServer.screen_get_image(DisplayServer.get_primary_screen())
 	if(testimg == null):
 		printerr("test img is null ")
 		return false;
@@ -54,9 +60,19 @@ func screenShot(side:int)->bool:
 	var erro = testimg.save_png(path+screenshotName+footer+".png")
 	if (erro != OK):
 		return false;
+	if(side == 2 || side == -1):
+		ready_toTurn = true;
 	return true;
 
+
+
+
+var primed:bool = false;
+
+
+
 func _physics_process(delta: float) -> void:
+	runtime = runtime+delta
 	set_vauls()
 
 
@@ -100,6 +116,20 @@ func set_vauls()->void:
 	p2_rect.z = p_2b_le_y.text.to_int()
 	pass
 
+var runtime = 0;
+var ready_toTurn = false;
+var readytoscreeshot:bool = false;
+var timetoscreenshota:float = 0;
+
+
+@onready var timer: Timer = $"../Timer"
+
+func _turnpage()->void:
+	if(ready_toTurn == false):
+		return;
+	timer.start(0);
+	pass
+
 func page_1_top_pushvals() -> void:
 	#p_1t_le_x.text 
 	#p_1t_le_y.text 
@@ -112,3 +142,9 @@ func page_2_top_pushvals() -> void:
 
 func page_2_bot_pushvals() -> void:
 	pass
+
+
+func _on_timer_timeout() -> void:
+	screenShot(1);
+	screenShot(2);
+	

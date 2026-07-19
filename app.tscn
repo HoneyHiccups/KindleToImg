@@ -2,13 +2,35 @@
 
 [ext_resource type="Script" uid="uid://8qot4b5hc4s4" path="res://ScreenShotter.gd" id="1_j6dmo"]
 
-[node name="App" type="Control" unique_id=2070368090]
+[sub_resource type="GDScript" id="GDScript_j6dmo"]
+resource_name = "input_grabber.gd"
+script/source = "extends Control
+
+@export var manger:main;
+
+# Called when the node enters the scene tree for the first time.
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if not event.echo:
+			if(event.keycode == 4194322):
+				if(event.pressed == true):
+					nextpagesymbol();
+
+
+func nextpagesymbol()->void:
+	manger._turnpage()
+	pass
+"
+
+[node name="App" type="Control" unique_id=2070368090 node_paths=PackedStringArray("manger")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_j6dmo")
+manger = NodePath("Node")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1335389170]
 custom_minimum_size = Vector2(128, 512)
@@ -202,3 +224,8 @@ text = "Save Config"
 [node name="Node" type="Node" parent="." unique_id=5567329]
 script = ExtResource("1_j6dmo")
 testfire = false
+
+[node name="Timer" type="Timer" parent="." unique_id=1106122948]
+wait_time = 0.33
+
+[connection signal="timeout" from="Timer" to="Node" method="_on_timer_timeout"]

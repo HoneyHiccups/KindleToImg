@@ -86,14 +86,14 @@ custom_minimum_size = Vector2(128, 0)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=815318845]
+[node name="p1t_le_x" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=815318845]
 layout_mode = 2
 placeholder_text = "x 640"
 alignment = 1
 max_length = 6
 keep_editing_on_text_submit = true
 
-[node name="LineEdit2" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1983613555]
+[node name="p1t_le_y" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer2" unique_id=1983613555]
 layout_mode = 2
 placeholder_text = "y 640"
 alignment = 1
@@ -117,14 +117,14 @@ custom_minimum_size = Vector2(128, 0)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer3" unique_id=574234933]
+[node name="p1b_le_x" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer3" unique_id=574234933]
 layout_mode = 2
 placeholder_text = "x 640"
 alignment = 1
 max_length = 6
 keep_editing_on_text_submit = true
 
-[node name="LineEdit2" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer3" unique_id=1260788412]
+[node name="p1b_le_y" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer3" unique_id=1260788412]
 layout_mode = 2
 placeholder_text = "y 640"
 alignment = 1
@@ -148,14 +148,14 @@ custom_minimum_size = Vector2(128, 0)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer4" unique_id=1658899269]
+[node name="p2t_le_x" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer4" unique_id=1658899269]
 layout_mode = 2
 placeholder_text = "x 640"
 alignment = 1
 max_length = 6
 keep_editing_on_text_submit = true
 
-[node name="LineEdit2" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer4" unique_id=1147194009]
+[node name="p2t_le_y" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer4" unique_id=1147194009]
 layout_mode = 2
 placeholder_text = "y 640"
 alignment = 1
@@ -179,14 +179,14 @@ custom_minimum_size = Vector2(128, 0)
 custom_maximum_size = Vector2(128, -1)
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer5" unique_id=552972418]
+[node name="p2b_le_x" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer5" unique_id=552972418]
 layout_mode = 2
 placeholder_text = "x 640"
 alignment = 1
 max_length = 6
 keep_editing_on_text_submit = true
 
-[node name="LineEdit2" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer5" unique_id=197907689]
+[node name="p2b_le_y" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer5" unique_id=197907689]
 layout_mode = 2
 placeholder_text = "y 640"
 alignment = 1

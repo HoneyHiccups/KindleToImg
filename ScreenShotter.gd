@@ -61,8 +61,29 @@ func _physics_process(delta: float) -> void:
 
 
 @onready var TurnEditBox: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer/LineEdit"
+@onready var p_1t_le_x: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer2/p1t_le_x"
+@onready var p_1t_le_y: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer2/p1t_le_y"
+@onready var p_1b_le_x: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer3/p1b_le_x"
+@onready var p_1b_le_y: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer3/p1b_le_y"
+@onready var p_2t_le_x: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer4/p2t_le_x"
+@onready var p_2t_le_y: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer4/p2t_le_y"
+@onready var p_2b_le_x: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer5/p2b_le_x"
+@onready var p_2b_le_y: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer5/p2b_le_y"
+
+
+var p1_rect:Vector4 = Vector4(0,0,0,0)
+var p2_rect:Vector4 = Vector4(0,0,0,0)
 
 func set_vauls()->void:
 	var turnseditboxtext=TurnEditBox.text;
 	MaxPageTurns = turnseditboxtext.to_int()
+	p1_rect.x = p_1t_le_x.text.to_int()
+	p1_rect.y = p_1t_le_y.text.to_int()
+	p1_rect.w = p_1b_le_x.text.to_int()
+	p1_rect.z = p_1b_le_y.text.to_int()
+	
+	p2_rect.x = p_2t_le_x.text.to_int()
+	p2_rect.y = p_2t_le_y.text.to_int()
+	p2_rect.w = p_2b_le_x.text.to_int()
+	p2_rect.z = p_2b_le_y.text.to_int()
 	pass

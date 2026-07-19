@@ -13,6 +13,7 @@ config_version=5
 config/name="KindlebookRip"
 run/main_scene="uid://chghvoyb2byh6"
 config/features=PackedStringArray("4.7", "Mobile")
+run/max_fps=144
 boot_splash/show_image=false
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
@@ -29,7 +30,7 @@ window/size/transparent=true
 window/size/maximize_disabled=true
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
-window/vsync/vsync_mode=3
+window/vsync/vsync_mode=0
 window/ios/allow_high_refresh_rate=false
 window/ios/hide_home_indicator=false
 window/ios/hide_status_bar=false
@@ -69,6 +70,7 @@ StartStop={
 
 [physics]
 
+common/physics_ticks_per_second=144
 2d/physics_engine="Dummy"
 3d/physics_engine="Dummy"
 

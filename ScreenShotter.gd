@@ -40,7 +40,7 @@ func warpclickLeft():
 
 
 func screenShot(side:int)->bool:
-	ready_toTurn = false;
+	#ready_toTurn = false;
 	if(side == -1):
 		#in this case we are running a test
 		pass
@@ -59,18 +59,16 @@ func screenShot(side:int)->bool:
 		final = DisplayServer.screen_get_image(DisplayServer.get_primary_screen())
 	if(final == null):
 		printerr("test img is null ")
-	else:
-		print("rect is:")
-		print( p1_rect.x,p1_rect.y,p1_rect.w,p1_rect.z)
+	#else:
+		#print("saving %i", screenshotNumber)
 	var project_root = OS.get_executable_path().get_base_dir()
 	final.convert(Image.FORMAT_L8)
 	var footer:String =  "%06d" % screenshotNumber
+	#var erro1 = final.save_jpg(path+screenshotName+footer+".jpg",.6)
 	var erro = final.save_png(path+screenshotName+footer+".png")
 	if (erro != OK):
 		printerr(erro)
 		return false;
-	if(side == 2 || side == -1):
-		ready_toTurn = true;
 	return true;
 
 
@@ -126,7 +124,7 @@ func set_vauls()->void:
 	pass
 
 var runtime = 0;
-var ready_toTurn = false;
+var ready_toTurn = true;
 var readytoscreeshot:bool = false;
 var timetoscreenshota:float = 0;
 
@@ -136,6 +134,7 @@ var timetoscreenshota:float = 0;
 func _turnpage()->void:
 	if(ready_toTurn == false):
 		return;
+	ready_toTurn = false;
 	timer.start(0);
 	pass
 
@@ -154,6 +153,7 @@ func page_2_bot_pushvals() -> void:
 
 
 func _on_timer_timeout() -> void:
-	screenShot(1);
-	screenShot(2);
+	screenShot(1)
+	screenShot(2)
+	ready_toTurn = true;
 	

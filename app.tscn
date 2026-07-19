@@ -227,5 +227,6 @@ testfire = false
 
 [node name="Timer" type="Timer" parent="." unique_id=1106122948]
 wait_time = 0.33
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="Node" method="_on_timer_timeout"]

@@ -22,6 +22,8 @@ func _ready() -> void:
 	for s in cmdarg:
 		path = path+s;
 	path = path+ '/';
+	#path = "/home/honey/Desktop/book/"
+
 	if(screenShot(-1) == true):
 		print_rich("[color=red] File should be in working dir, look for test.png");
 		screenshotName = "page_";
@@ -45,20 +47,27 @@ func screenShot(side:int)->bool:
 	else:
 		screenshotNumber = screenshotNumber+1;
 	testfire = false;
+	testimg = DisplayServer.screen_get_image(DisplayServer.get_primary_screen())
+	var final:Image
 	if(side == 1):
-		testimg = DisplayServer.screen_get_image_rect(Rect2i(p1_rect.x,p1_rect.y,p1_rect.w,p1_rect.x));
+		final = testimg.get_region(Rect2i(p1_rect.x,p1_rect.y,p1_rect.w,p1_rect.z))
+		#testimg = DisplayServer.screen_get_image_rect(Rect2i(p1_rect.x,p1_rect.y,p1_rect.w,p1_rect.z));
 	if(side == 2):
-		testimg = DisplayServer.screen_get_image_rect(Rect2i(p2_rect.x,p2_rect.y,p2_rect.w,p2_rect.x));
+		final = testimg.get_region(Rect2i(p2_rect.x,p2_rect.y,p2_rect.w,p2_rect.z))
+		#testimg = DisplayServer.screen_get_image_rect(Rect2i(p2_rect.x,p2_rect.y,p2_rect.w,p2_rect.z));
 	if(side == -1):
-		testimg = DisplayServer.screen_get_image(DisplayServer.get_primary_screen())
-	if(testimg == null):
+		final = DisplayServer.screen_get_image(DisplayServer.get_primary_screen())
+	if(final == null):
 		printerr("test img is null ")
-		return false;
+	else:
+		print("rect is:")
+		print( p1_rect.x,p1_rect.y,p1_rect.w,p1_rect.z)
 	var project_root = OS.get_executable_path().get_base_dir()
-	testimg.convert(Image.FORMAT_L8)
+	final.convert(Image.FORMAT_L8)
 	var footer:String =  "%06d" % screenshotNumber
-	var erro = testimg.save_png(path+screenshotName+footer+".png")
+	var erro = final.save_png(path+screenshotName+footer+".png")
 	if (erro != OK):
+		printerr(erro)
 		return false;
 	if(side == 2 || side == -1):
 		ready_toTurn = true;

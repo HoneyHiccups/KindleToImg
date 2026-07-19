@@ -1,9 +1,9 @@
 78098b89c88a74ebe8c20117b8754620
-::res://::1784429123
-app.tscn::PackedScene::5277012832481947333::1784428129::0::1::::<><><>0<>0<><>::uid://8qot4b5hc4s4::::res://ScreenShotter.gd
-export_presets.cfg::TextFile::-1::1784345914::0::1::::<><><>0<>0<><>::
+::res://::1784439778
+app.tscn::PackedScene::5277012832481947333::1784439527::0::1::::<><><>0<>0<><>::uid://8qot4b5hc4s4::::res://ScreenShotter.gd
+export_presets.cfg::TextFile::-1::1784439540::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D::1825309284730732804::1784345914::1784345939::1::::<><><>0<>0<>bb0632860ddd71d166c1fe39fc049e8d<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-ScreenShotter.gd::GDScript::2350147378197437045::1784428129::0::1::::<>Node<><>0<>0<><>::
+ScreenShotter.gd::GDScript::2350147378197437045::1784439527::0::1::::main<>Node<><>0<>0<><>::
 ::res://addons/::1757367204
 ::res://addons/os_shortcut/::1757367204
 os_shortcut.gd::GDScript::5269675876197698913::1757367204::0::1::::<>Node<><>0<>0<><>::

@@ -17,6 +17,10 @@ boot_splash/show_image=false
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+OSShortcut="*uid://chcw16j2axfsr"
+
 [display]
 
 window/size/viewport_width=128
@@ -30,6 +34,10 @@ window/ios/allow_high_refresh_rate=false
 window/ios/hide_home_indicator=false
 window/ios/hide_status_bar=false
 window/ios/suppress_ui_gesture=false
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/os_shortcut/plugin.cfg")
 
 [input]
 

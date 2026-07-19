@@ -7,7 +7,7 @@ var path:String;
 var screenshotName:String = "test"
 var screenshotNumber:int = 0000;
 var MaxPageTurns :int = 0;
-
+var open:bool = false;
 
 
 @onready var status: Label = $"../CenterContainer/VBoxContainer/Status"
@@ -60,6 +60,18 @@ func _physics_process(delta: float) -> void:
 	set_vauls()
 
 
+func _process(delta: float) -> void:
+	if(Input.get_action_raw_strength("Page1RectTopFetch") == 1):
+		page_1_top_pushvals();
+	if(Input.get_action_raw_strength("Page1RectbotFetch")== 1):
+		page_1_bot_pushvals();
+	if(Input.get_action_raw_strength("Page2RectTopFetch")==1):
+		page_2_top_pushvals();
+	if(Input.get_action_raw_strength("Page2RectBotFetch")==1):
+		page_2_bot_pushvals();
+	if(Input.get_action_raw_strength("StartStop")==1):
+		open = true;
+		
 @onready var TurnEditBox: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer/LineEdit"
 @onready var p_1t_le_x: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer2/p1t_le_x"
 @onready var p_1t_le_y: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer2/p1t_le_y"
@@ -86,4 +98,17 @@ func set_vauls()->void:
 	p2_rect.y = p_2t_le_y.text.to_int()
 	p2_rect.w = p_2b_le_x.text.to_int()
 	p2_rect.z = p_2b_le_y.text.to_int()
+	pass
+
+func page_1_top_pushvals() -> void:
+	#p_1t_le_x.text 
+	#p_1t_le_y.text 
+	pass
+func page_1_bot_pushvals() -> void:
+	pass
+
+func page_2_top_pushvals() -> void:
+	pass
+
+func page_2_bot_pushvals() -> void:
 	pass

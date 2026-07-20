@@ -33,7 +33,7 @@ script = SubResource("GDScript_j6dmo")
 manger = NodePath("Node")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1335389170]
-custom_minimum_size = Vector2(128, 512)
+custom_minimum_size = Vector2(128, 640)
 layout_mode = 0
 offset_right = 128.0
 offset_bottom = 512.0
@@ -215,7 +215,33 @@ alignment = 1
 max_length = 6
 keep_editing_on_text_submit = true
 
-[node name="Button" type="Button" parent="CenterContainer/VBoxContainer" unique_id=456485559]
+[node name="HBoxContainer6" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=2033247332]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer6" unique_id=1854360964]
+layout_mode = 2
+text = "Grayscale:    "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bIsgray" type="CheckBox" parent="CenterContainer/VBoxContainer/HBoxContainer6" unique_id=94519523]
+layout_mode = 2
+button_pressed = true
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CenterContainer/VBoxContainer" unique_id=1767602834]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer/HBoxContainer7" unique_id=2060716094]
+layout_mode = 2
+text = "2 Page Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="bIs2page" type="CheckBox" parent="CenterContainer/VBoxContainer/HBoxContainer7" unique_id=494398529]
+layout_mode = 2
+button_pressed = true
+
+[node name="Savebutton" type="Button" parent="CenterContainer/VBoxContainer" unique_id=456485559]
 custom_maximum_size = Vector2(-1, 21.215)
 layout_mode = 2
 theme_override_font_sizes/font_size = 14

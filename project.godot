@@ -25,7 +25,7 @@ OSShortcut="*uid://chcw16j2axfsr"
 [display]
 
 window/size/viewport_width=128
-window/size/viewport_height=512
+window/size/viewport_height=640
 window/size/transparent=true
 window/size/maximize_disabled=true
 window/stretch/mode="viewport"

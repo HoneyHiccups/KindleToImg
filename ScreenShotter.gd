@@ -8,7 +8,8 @@ var screenshotName:String = "test"
 var screenshotNumber:int = 0000;
 var MaxPageTurns :int = 0;
 var open:bool = false;
-
+var bIsUseGrayscale:bool = true;
+var bIsUse2pageMode:bool = true;
 
 @onready var status: Label = $"../CenterContainer/VBoxContainer/Status"
 
@@ -62,7 +63,10 @@ func screenShot(side:int)->bool:
 	#else:
 		#print("saving %i", screenshotNumber)
 	var project_root = OS.get_executable_path().get_base_dir()
-	final.convert(Image.FORMAT_L8)
+	if(bIsUseGrayscale == true):
+		final.convert(Image.FORMAT_L8)
+	else:
+		final.convert(Image.FORMAT_RGB16)
 	var footer:String =  "%06d" % screenshotNumber
 	#var erro1 = final.save_jpg(path+screenshotName+footer+".jpg",.6)
 	var erro = final.save_png(path+screenshotName+footer+".png")
@@ -104,12 +108,15 @@ func _process(delta: float) -> void:
 @onready var p_2t_le_y: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer4/p2t_le_y"
 @onready var p_2b_le_x: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer5/p2b_le_x"
 @onready var p_2b_le_y: LineEdit = $"../CenterContainer/VBoxContainer/HBoxContainer5/p2b_le_y"
-
+@onready var b_isgray: CheckBox = $"../CenterContainer/VBoxContainer/HBoxContainer6/bIsgray"
+@onready var b_is_2_page: CheckBox = $"../CenterContainer/VBoxContainer/HBoxContainer7/bIs2page"
 
 var p1_rect:Vector4 = Vector4(0,0,0,0)
 var p2_rect:Vector4 = Vector4(0,0,0,0)
 
 func set_vauls()->void:
+	bIsUse2pageMode = b_is_2_page.button_pressed
+	bIsUseGrayscale = b_isgray.button_pressed
 	var turnseditboxtext=TurnEditBox.text;
 	MaxPageTurns = turnseditboxtext.to_int()
 	p1_rect.x = p_1t_le_x.text.to_int()
@@ -154,6 +161,7 @@ func page_2_bot_pushvals() -> void:
 
 func _on_timer_timeout() -> void:
 	screenShot(1)
-	screenShot(2)
+	if(bIsUse2pageMode == true):
+		screenShot(2)
 	ready_toTurn = true;
 	
